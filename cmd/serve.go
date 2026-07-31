@@ -16,7 +16,7 @@ var serveCmd = &cobra.Command{
 	Short: "starts the server",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		port := viper.GetInt("port")
-		fmt.Printf("Starting server on port %d\\n", port)
+		fmt.Printf("Starting server on port %d\n", port)
 		// in real app, you would start server here
 		return nil
 	},
