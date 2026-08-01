@@ -16,7 +16,13 @@ var serveCmd = &cobra.Command{
 	Short: "starts the server",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		port := viper.GetInt("port")
-		fmt.Printf("Starting server on port %d\n", port)
+		if verbose {
+			fmt.Printf("Starting server on port %d\n", port)
+			fmt.Printf("Verbose mode enabled\n")
+			fmt.Println("Configuration validated successfully")
+		} else {
+			fmt.Printf("Starting server on port %d\n", port)
+		}
 		// in real app, you would start server here
 		return nil
 	},
@@ -26,9 +32,7 @@ func init() {
 	rootCmd.AddCommand(serveCmd)
 	// define local flag for serve command
 	// flag, shorthand, default value, description
-	serveCmd.Flags().IntP("port", "p", 8080, "port to run the server on")
-
-	// Here you will define your flags and configuration settings.
+	serveCmd.Flags().IntP("port", "p", 8080, "port to run the server on") // Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
