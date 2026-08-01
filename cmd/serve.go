@@ -12,8 +12,9 @@ import (
 
 // serveCmd represents the serve command
 var serveCmd = &cobra.Command{
-	Use:   "serve",
-	Short: "starts the server",
+	Use:     "serve",
+	Short:   "starts the server",
+	Aliases: []string{"s"},
 	RunE: func(cmd *cobra.Command, args []string) error {
 		port := viper.GetInt("port")
 		if verbose {
