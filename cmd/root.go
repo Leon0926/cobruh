@@ -69,7 +69,7 @@ func initConfig(cmd *cobra.Command) error {
 
 		// search for config in home dir with name ".cobruh" (w/o extensions)
 		viper.AddConfigPath(".")
-		viper.AddConfigPath(home + "./cobruh")
+		viper.AddConfigPath(home + "/.cobruh")
 		viper.SetConfigType("yaml")
 		viper.SetConfigName("config")
 	}
